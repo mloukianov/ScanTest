@@ -3,7 +3,7 @@
 //  ScanTest
 //
 //  Created by Max Loukianov on 11/5/11.
-//  Copyright (c) 2011 Freelink Wireless Services. All rights reserved.
+//  Copyright (c) 2011 Gimme!Deals LLC. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
