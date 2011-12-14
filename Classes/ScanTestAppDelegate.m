@@ -20,6 +20,7 @@
 
 @synthesize window;
 @synthesize navigationController;
+@synthesize dealNavController;
 
 @synthesize profileEmail;
 @synthesize profilePhone;
@@ -34,15 +35,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     // Override point for customization after app launch
     
-    LoginViewController* loginViewController = [[LoginViewController alloc] init];
+    LoginViewController* loginViewController = [[[LoginViewController alloc] init] autorelease];
     
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    self.navigationController = [[[UINavigationController alloc] initWithRootViewController:loginViewController] autorelease];
     
     [navigationController setNavigationBarHidden:YES];
     
     [window setRootViewController:navigationController];
-    
-    [loginViewController release];
     
     // show the window
     [window makeKeyAndVisible];
@@ -82,8 +81,13 @@
     
     UINavigationController *prefsNavController = [[UINavigationController alloc] initWithRootViewController:accountPrefsViewController];
     
+    self.dealNavController = [[[UINavigationController alloc] initWithRootViewController:dailyDealViewController] autorelease];
+    
+    [self.dealNavController setNavigationBarHidden:YES];
+    
+    
     // make an array containing four view controllers
-    NSArray *viewControllers = [NSArray arrayWithObjects:rootViewController, dailyDealViewController, superDealViewController, prefsNavController, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:rootViewController, self.dealNavController, superDealViewController, prefsNavController, nil];
     
     // The viewcontrollers array retains controllers, so release them
     [rootViewController release];

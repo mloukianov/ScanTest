@@ -13,6 +13,8 @@
     UIWindow *window;
     UINavigationController *navigationController;
     
+    UINavigationController *dealNavController;
+    
     NSString* profileEmail;
     NSString* profilePhone;
     NSString* profilePassword;
@@ -21,7 +23,9 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, retain) IBOutlet UINavigationController *dealNavController;
 
 @property (nonatomic, retain) NSString* profileEmail;
 @property (nonatomic, retain) NSString* profilePhone;

@@ -265,7 +265,8 @@
 
 #pragma mark TableView methods
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView 
+  numberOfRowsInSection:(NSInteger)section {
     return 4;
 }
 
@@ -273,7 +274,8 @@
 // and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView 
+  cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString * cellIdentifier = @"signupCell";
     
@@ -333,7 +335,7 @@
 {
     [super viewDidLoad];
     
-    self.phoneField = [[UITextField alloc] initWithFrame:CGRectMake(155.0, 15.0, 165.0, 25.0)];
+    self.phoneField = [[[UITextField alloc] initWithFrame:CGRectMake(155.0, 15.0, 165.0, 25.0)] autorelease];
     
     self.phoneField.adjustsFontSizeToFitWidth = YES;
     self.phoneField.textColor = [UIColor blackColor];
@@ -353,7 +355,7 @@
     [[self phoneField] setEnabled:YES];
     
     
-    self.emailField = [[UITextField alloc] initWithFrame:CGRectMake(155.0, 15.0, 165.0, 25.0)];
+    self.emailField = [[[UITextField alloc] initWithFrame:CGRectMake(155.0, 15.0, 165.0, 25.0)] autorelease];
     
     self.emailField.adjustsFontSizeToFitWidth = YES;
     self.emailField.textColor = [UIColor blackColor];
@@ -373,7 +375,7 @@
     [[self emailField] setEnabled:YES];
 
 
-    self.passwordField = [[UITextField alloc] initWithFrame:CGRectMake(155.0, 15.0, 165.0, 25.0)];
+    self.passwordField = [[[UITextField alloc] initWithFrame:CGRectMake(155.0, 15.0, 165.0, 25.0)] autorelease];
     
     self.passwordField.adjustsFontSizeToFitWidth = YES;
     self.passwordField.textColor = [UIColor blackColor];
@@ -394,7 +396,7 @@
     [[self passwordField] setEnabled:YES];
 
     
-    self.confirmField = [[UITextField alloc] initWithFrame:CGRectMake(155.0, 15.0, 165.0, 25.0)];
+    self.confirmField = [[[UITextField alloc] initWithFrame:CGRectMake(155.0, 15.0, 165.0, 25.0)] autorelease];
     
     self.confirmField.adjustsFontSizeToFitWidth = YES;
     self.confirmField.textColor = [UIColor blackColor];

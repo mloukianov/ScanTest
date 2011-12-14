@@ -53,6 +53,8 @@
 		CC37310E141F52C3002E31E9 /* phone_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC37310B141F52C3002E31E9 /* phone_icon.jpg */; };
 		CC37310F141F52C3002E31E9 /* password_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC37310C141F52C3002E31E9 /* password_icon.jpg */; };
 		CC373110141F52C3002E31E9 /* email_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC37310D141F52C3002E31E9 /* email_icon.jpg */; };
+		CC46EEA2148F5FC1004D8CAC /* DailyDealDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC46EEA0148F5FC1004D8CAC /* DailyDealDetailViewController.m */; };
+		CC46EEA3148F5FC1004D8CAC /* DailyDealDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC46EEA1148F5FC1004D8CAC /* DailyDealDetailViewController.xib */; };
 		CC606B58141B29A100136B6B /* gimme_iOS_app_icon_57_57.png in Resources */ = {isa = PBXBuildFile; fileRef = CC606B57141B29A100136B6B /* gimme_iOS_app_icon_57_57.png */; };
 		CC606B5A141B29AE00136B6B /* gimme_iOS_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CC606B59141B29AE00136B6B /* gimme_iOS_app_icon.png */; };
 		CC606B5E141B2A3500136B6B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CC606B5D141B2A3500136B6B /* Default.png */; };
@@ -67,6 +69,8 @@
 		CC6970721451F870004CA33C /* SuperDealBar.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6970711451F870004CA33C /* SuperDealBar.png */; };
 		CC6970741451F95F004CA33C /* superdeal_content_box.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6970731451F95F004CA33C /* superdeal_content_box.png */; };
 		CC6970761451FA14004CA33C /* GimmeThisDeal_SuperDeal_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6970751451FA14004CA33C /* GimmeThisDeal_SuperDeal_Button.png */; };
+		CCD4BAA9148C61E5002681B5 /* DealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD4BAA8148C61E5002681B5 /* DealTableViewCell.m */; };
+		CCD4BAAB148C6259002681B5 /* DealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD4BAAA148C6259002681B5 /* DealTableViewCell.xib */; };
 		CCDD819B1464FF080006CF3E /* AccountPrefsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDD81991464FF080006CF3E /* AccountPrefsViewController.m */; };
 		CCDD819C1464FF080006CF3E /* AccountPrefsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDD819A1464FF080006CF3E /* AccountPrefsViewController.xib */; };
 		CCDD819E146500920006CF3E /* myaccount_header.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDD819D146500920006CF3E /* myaccount_header.png */; };
@@ -101,13 +105,20 @@
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = ZXingWidget;
 		};
+		CCF7F1EC148B7E3D00051B35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F027F7611A7BAD4006B06DE /* ZXingWidget.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1D60398D13DF7CAD006F4B51;
+			remoteInfo = ZXingTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* ScanTestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanTestAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* ScanTestAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanTestAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* ScanTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* Gimme!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gimme!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1F027F7611A7BAD4006B06DE /* ZXingWidget.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingWidget.xcodeproj; path = ../ZXingWidget/ZXingWidget.xcodeproj; sourceTree = SOURCE_ROOT; };
 		1F027F8411A7BB77006B06DE /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
@@ -173,6 +184,9 @@
 		CC37310B141F52C3002E31E9 /* phone_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = phone_icon.jpg; sourceTree = "<group>"; };
 		CC37310C141F52C3002E31E9 /* password_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = password_icon.jpg; sourceTree = "<group>"; };
 		CC37310D141F52C3002E31E9 /* email_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = email_icon.jpg; sourceTree = "<group>"; };
+		CC46EE9F148F5FC1004D8CAC /* DailyDealDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyDealDetailViewController.h; sourceTree = "<group>"; };
+		CC46EEA0148F5FC1004D8CAC /* DailyDealDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyDealDetailViewController.m; sourceTree = "<group>"; };
+		CC46EEA1148F5FC1004D8CAC /* DailyDealDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyDealDetailViewController.xib; sourceTree = "<group>"; };
 		CC606B57141B29A100136B6B /* gimme_iOS_app_icon_57_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gimme_iOS_app_icon_57_57.png; sourceTree = "<group>"; };
 		CC606B59141B29AE00136B6B /* gimme_iOS_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gimme_iOS_app_icon.png; sourceTree = "<group>"; };
 		CC606B5D141B2A3500136B6B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -190,6 +204,9 @@
 		CC6970711451F870004CA33C /* SuperDealBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SuperDealBar.png; sourceTree = "<group>"; };
 		CC6970731451F95F004CA33C /* superdeal_content_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = superdeal_content_box.png; sourceTree = "<group>"; };
 		CC6970751451FA14004CA33C /* GimmeThisDeal_SuperDeal_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GimmeThisDeal_SuperDeal_Button.png; sourceTree = "<group>"; };
+		CCD4BAA7148C61E5002681B5 /* DealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealTableViewCell.h; sourceTree = "<group>"; };
+		CCD4BAA8148C61E5002681B5 /* DealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealTableViewCell.m; sourceTree = "<group>"; };
+		CCD4BAAA148C6259002681B5 /* DealTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealTableViewCell.xib; sourceTree = "<group>"; };
 		CCDD81981464FF080006CF3E /* AccountPrefsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountPrefsViewController.h; sourceTree = "<group>"; };
 		CCDD81991464FF080006CF3E /* AccountPrefsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountPrefsViewController.m; sourceTree = "<group>"; };
 		CCDD819A1464FF080006CF3E /* AccountPrefsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPrefsViewController.xib; sourceTree = "<group>"; };
@@ -241,6 +258,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CC46EE9C148F5A9D004D8CAC /* DailyDealDetail */,
+				CCD4BAA6148C6195002681B5 /* DealTableViewCell */,
 				CCDD81C014672DF70006CF3E /* LoginAndSignup */,
 				CCDD81A1146612DC0006CF3E /* AccountPrefs */,
 				CC69706C145174C1004CA33C /* asyncimageview.m */,
@@ -274,7 +293,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* ScanTest.app */,
+				1D6058910D05DD3D006BFB54 /* Gimme!.app */,
 				E5345FD6119B27D2000CB77F /* libZXingWidget.a */,
 			);
 			name = Products;
@@ -292,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				1F027F7E11A7BAD4006B06DE /* libZXingWidget.a */,
+				CCF7F1ED148B7E3D00051B35 /* ZXingTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -370,6 +390,26 @@
 				3BCED5EA120F885C00131FA0 /* CoreMedia.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC46EE9C148F5A9D004D8CAC /* DailyDealDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CC46EE9F148F5FC1004D8CAC /* DailyDealDetailViewController.h */,
+				CC46EEA0148F5FC1004D8CAC /* DailyDealDetailViewController.m */,
+				CC46EEA1148F5FC1004D8CAC /* DailyDealDetailViewController.xib */,
+			);
+			name = DailyDealDetail;
+			sourceTree = "<group>";
+		};
+		CCD4BAA6148C6195002681B5 /* DealTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CCD4BAA7148C61E5002681B5 /* DealTableViewCell.h */,
+				CCD4BAA8148C61E5002681B5 /* DealTableViewCell.m */,
+				CCD4BAAA148C6259002681B5 /* DealTableViewCell.xib */,
+			);
+			name = DealTableViewCell;
 			sourceTree = "<group>";
 		};
 		CCDD81931464A38D0006CF3E /* SBJson */ = {
@@ -452,7 +492,7 @@
 			);
 			name = ScanTest;
 			productName = ScanTest;
-			productReference = 1D6058910D05DD3D006BFB54 /* ScanTest.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* Gimme!.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -495,6 +535,13 @@
 			fileType = archive.ar;
 			path = libZXingWidget.a;
 			remoteRef = 1F027F7D11A7BAD4006B06DE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CCF7F1ED148B7E3D00051B35 /* ZXingTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ZXingTests.octest;
+			remoteRef = CCF7F1EC148B7E3D00051B35 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -542,6 +589,8 @@
 				CCDD81B114665E2D0006CF3E /* SignupViewController.xib in Resources */,
 				CCDD81BA14671E1B0006CF3E /* AccountPasswordViewController.xib in Resources */,
 				CCDD81BF14671E2E0006CF3E /* AccountPhoneViewController.xib in Resources */,
+				CCD4BAAB148C6259002681B5 /* DealTableViewCell.xib in Resources */,
+				CC46EEA3148F5FC1004D8CAC /* DailyDealDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +628,8 @@
 				CCDD81B014665E2D0006CF3E /* SignupViewController.m in Sources */,
 				CCDD81B914671E1B0006CF3E /* AccountPasswordViewController.m in Sources */,
 				CCDD81BE14671E2E0006CF3E /* AccountPhoneViewController.m in Sources */,
+				CCD4BAA9148C61E5002681B5 /* DealTableViewCell.m in Sources */,
+				CC46EEA2148F5FC1004D8CAC /* DailyDealDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,7 +662,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
-				PRODUCT_NAME = ScanTest;
+				PRODUCT_NAME = "Gimme!";
 				SDKROOT = iphoneos;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 			};
@@ -629,7 +680,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "ScanTest-Info.plist";
-				PRODUCT_NAME = ScanTest;
+				PRODUCT_NAME = "Gimme!";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -650,6 +701,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PREBINDING = NO;
+				PRODUCT_NAME = "Gimme!";
 				SDKROOT = iphoneos4.2;
 				WARNING_CFLAGS = (
 					"-Werror",
@@ -676,6 +728,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
+				PRODUCT_NAME = "Gimme!";
 				SDKROOT = iphoneos4.2;
 				WARNING_CFLAGS = (
 					"-Werror",

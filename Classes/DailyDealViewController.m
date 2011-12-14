@@ -11,6 +11,8 @@
 
 #import "ScanTestAppDelegate.h"
 
+#import "DailyDealDetailViewController.h"
+
 #import "asyncimageview.h"
 
 
@@ -20,13 +22,18 @@
 @synthesize resultsTable;
 @synthesize segmentedControl;
 
+@synthesize urlConnection;
+
 @synthesize receivedData;
 
 @synthesize jsonarray;
 
+#pragma mark NSURLConnection delegate methods
+
 // this class is a delegate for the connection methods
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+- (void)connection:(NSURLConnection *)connection
+  didReceiveResponse:(NSURLResponse *)response
 {
     // This method is called when the server has determined that it
     // has enough information to create the NSURLResponse.
@@ -38,7 +45,8 @@
     [receivedData setLength:0];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+- (void)connection:(NSURLConnection *)connection 
+  didReceiveData:(NSData *)data
 {
     // Append the new data to receivedData.
     // receivedData is an instance variable declared elsewhere.
@@ -48,10 +56,9 @@
 - (void)connection:(NSURLConnection *)connection
   didFailWithError:(NSError *)error
 {
-    // release the connection, and the data object
-    [connection release];
-    // receivedData is declared as a method instance elsewhere
+    // release data and url connection
     [receivedData release];
+    [urlConnection release];
     
     // inform the user
     NSLog(@"Connection failed! Error - %@ %@",
@@ -61,31 +68,19 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    // do something with the data
-    // receivedData is declared as a method instance elsewhere
-
     NSString* returnedString = [[[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding] autorelease];
-    
-    // NSString* returnedString = [NSString stringWithUTF8String:[receivedData bytes]];
     
     NSLog(@"Received data %@", returnedString);
     
     SBJsonParser* jsonparser = [[[SBJsonParser alloc] init ] autorelease];
     
     NSError* error = nil;
-    id jsonobject = [jsonparser objectWithString:returnedString error:&error];
-    
-    [jsonobject retain];
+    id jsonobject = [[jsonparser objectWithString:returnedString error:&error] retain];
     
     if ([jsonobject isKindOfClass:[NSArray class]]) {
         // process it as an array
-        NSLog(@"JSON object is NSArray");
-        
-        jsonarray = [NSArray arrayWithArray:jsonobject];
-        
-        [jsonarray retain];
-        
-        NSLog(@"JSON object is %@", jsonarray);
+        jsonarray = [[NSArray arrayWithArray:jsonobject] retain];
+        NSLog(@"JSON object (of type NSArray) is %@", jsonarray);
         
     } else if ([jsonobject isKindOfClass:[NSDictionary class]]) {
         // process it as a dictionary
@@ -117,11 +112,10 @@
         }
     }
     
-    // [jsonparser release];
-    
     // release the connection, and the data object
-    [connection release];
+    [jsonobject release];
     [receivedData release];
+    [urlConnection release];
 
     [[self resultsTable] reloadData];
 }
@@ -132,17 +126,17 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
-    UITabBarItem *tbi = [self tabBarItem];
-    
-    [tbi setTitle:@"Daily Deal"];
-    
-    UIImage *image = [UIImage imageNamed:@"07-map-marker.png"];
-    
-    [tbi setImage:image];
-    
     if (self) {
-        // Custom initialization
+        
+        UITabBarItem *tbi = [self tabBarItem];
+        
+        [tbi setTitle:@"Daily Deal"];
+        
+        UIImage *image = [UIImage imageNamed:@"07-map-marker.png"];
+        
+        [tbi setImage:image];
     }
+    
     return self;
 }
 
@@ -185,59 +179,60 @@
     
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-    } else {
-        AsyncImageView* oldImage = (AsyncImageView*) [cell.contentView viewWithTag:999];
-        [oldImage removeFromSuperview];
-    }
-    
-    // NSLog(@"Dictionary: %@", [jsonarray objectAtIndex:indexPath.row]);
-    
-    // Set up the cell...
-    // cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    }    
     
     NSDictionary* dict = (NSDictionary*)[jsonarray objectAtIndex:indexPath.row];
     
     CGRect frame;
+    
 	frame.size.width=75; frame.size.height=75;
 	frame.origin.x=0; frame.origin.y=0;
-	AsyncImageView* asyncImage = [[[AsyncImageView alloc]
-                                   initWithFrame:frame] autorelease];
-	asyncImage.tag = 999;
     
     if ([dict objectForKey:@"id"]) {
     
-        NSString* imageUrlString = [NSString stringWithFormat:@"http://173.246.103.0/mobile/app/deal/img/%@", [dict objectForKey:@"id"]];
+        // NSString* imageUrlString = [NSString stringWithFormat:@"http://173.246.103.0/mobile/app/deal/img/%@", [dict objectForKey:@"id"]];
     
-        NSURL* url = [NSURL URLWithString:imageUrlString];
-    
-        [asyncImage loadImageFromURL:url];
-        
-        [cell.imageView addSubview:asyncImage];
+        // NSURL* url = [NSURL URLWithString:imageUrlString];
     
         NSString* labeltext = [dict objectForKey:@"name"];
         NSString* detailedtext = [dict objectForKey:@"locationType"];
     
         cell.textLabel.text = labeltext;
         cell.detailTextLabel.text = detailedtext;
+        
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     
     
     return cell;
 }
 
+- (void) tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    
+    NSLog(@"Clicked on chevron at row #%d", [indexPath row]);
+    
+    ScanTestAppDelegate* appDelegate = (ScanTestAppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    DailyDealDetailViewController *dealDetailViewController = [[DailyDealDetailViewController alloc] init];
+    
+    [[appDelegate dealNavController] pushViewController:dealDetailViewController animated:YES];
+    
+    [dealDetailViewController release];
+
+}
+
 - (void) tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // open a alert with an OK and cancel button
-    NSString *alertString = [NSString stringWithFormat:@"Clicked on row #%d", [indexPath row]];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertString message:@"" delegate:self cancelButtonTitle:@"Done" otherButtonTitles:nil];
-    [alert show];
-    [alert release];
+    
+    NSLog(@"Clicked on row #%d", [indexPath row]);
 }
 
 #pragma mark - View lifecycle
 
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
+    
     NSLog(@"View will appear got called");
     
     // load deals data fromm the web site
@@ -254,10 +249,10 @@
     
     // we have created NSURLRequest (in the form of NSMutableURLRequest)
     
-    NSURLConnection* theConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+    urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     
-    if (theConnection) {
-        receivedData = [[NSMutableData data] retain];
+    if (urlConnection) {
+        receivedData = [[NSMutableData data] autorelease];
     }
 }
 
