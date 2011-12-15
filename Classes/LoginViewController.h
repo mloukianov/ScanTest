@@ -13,6 +13,8 @@
     UITextField* emailField;
     UITextField* passwordField;
     
+    NSURLConnection *urlConnection;
+    
     NSMutableData* receivedData;
     
     UIButton *signupLabel;
@@ -22,6 +24,8 @@
 @property (nonatomic, retain) IBOutlet UITextField* passwordField;
 
 @property (nonatomic, retain) IBOutlet UIButton *signupLabel;
+
+@property (nonatomic, retain) NSURLConnection *urlConnection;
 
 @property (nonatomic, retain) NSMutableData* receivedData;
 

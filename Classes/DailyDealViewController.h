@@ -9,27 +9,21 @@
 #import <UIKit/UIKit.h>
 
 
-@interface DailyDealViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface DailyDealViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSURLConnectionDelegate> {
+    
     IBOutlet UISearchBar* search;
     IBOutlet UITableView* resultsTable;
     IBOutlet UISegmentedControl* segmentedControl;
     
-    NSURLConnection *urlConnection;
-    
     NSMutableData* receivedData;
-    
     NSArray* jsonarray;
-    
 }
 
 @property (nonatomic, retain) UISearchBar* search;
 @property (nonatomic, retain) UITableView* resultsTable;
 @property (nonatomic, retain) UISegmentedControl* segmentedControl;
 
-@property (nonatomic, retain) NSURLConnection *urlConnection;
-
 @property (nonatomic, retain) NSMutableData* receivedData;
-
 @property (nonatomic, retain) NSArray* jsonarray;
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;

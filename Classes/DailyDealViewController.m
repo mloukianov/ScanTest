@@ -3,17 +3,14 @@
 //  ScanTest
 //
 //  Created by Max Loukianov on 9/11/11.
-//  Copyright 2011 Freelink Wireless Services. All rights reserved.
+//  Copyright 2011 Gimme!Deals LLC. All rights reserved.
 //
 
 #import "DailyDealViewController.h"
 #import "SBJson.h"
 
 #import "ScanTestAppDelegate.h"
-
 #import "DailyDealDetailViewController.h"
-
-#import "asyncimageview.h"
 
 
 @implementation DailyDealViewController
@@ -22,11 +19,9 @@
 @synthesize resultsTable;
 @synthesize segmentedControl;
 
-@synthesize urlConnection;
-
 @synthesize receivedData;
-
 @synthesize jsonarray;
+
 
 #pragma mark NSURLConnection delegate methods
 
@@ -42,6 +37,10 @@
     // redirect, so each time we reset the data.
     
     // receivedData is an instance variable declared elsewhere.
+    if (receivedData == nil) {
+        NSLog(@"receivedData is nil - error!");
+    }
+    
     [receivedData setLength:0];
 }
 
@@ -50,15 +49,20 @@
 {
     // Append the new data to receivedData.
     // receivedData is an instance variable declared elsewhere.
+    
+    NSLog(@"didReceiveData on connection; appeningData to NSMutableData");
+    
     [receivedData appendData:data];
 }
 
 - (void)connection:(NSURLConnection *)connection
   didFailWithError:(NSError *)error
 {
+    NSLog(@"Connection didFailWithError; receivedData released");
     // release data and url connection
     [receivedData release];
-    [urlConnection release];
+    receivedData = nil;
+    [connection release];
     
     // inform the user
     NSLog(@"Connection failed! Error - %@ %@",
@@ -69,6 +73,8 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSString* returnedString = [[[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding] autorelease];
+    
+    NSLog(@"Connection didFinishLoading; preparing to parse");
     
     NSLog(@"Received data %@", returnedString);
     
@@ -115,7 +121,8 @@
     // release the connection, and the data object
     [jsonobject release];
     [receivedData release];
-    [urlConnection release];
+    receivedData = nil;
+    [connection release];
 
     [[self resultsTable] reloadData];
 }
@@ -249,10 +256,13 @@
     
     // we have created NSURLRequest (in the form of NSMutableURLRequest)
     
-    urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     
-    if (urlConnection) {
-        receivedData = [[NSMutableData data] autorelease];
+    if (connection) {
+        [receivedData release];
+        [self setReceivedData:[[NSMutableData data] retain]];    // retained by the property setter
+    } else {
+        // the connection has failed; need to inform the user
     }
 }
 

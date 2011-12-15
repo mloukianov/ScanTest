@@ -19,6 +19,8 @@
 @synthesize passwordField;
 @synthesize signupLabel;
 
+@synthesize urlConnection;
+
 @synthesize receivedData;
 
 - (IBAction)doSignupButton:(id)sender {
@@ -62,9 +64,7 @@
 - (void)connection:(NSURLConnection *)connection
   didFailWithError:(NSError *)error
 {
-    // release the connection, and the data object
-    [connection release];
-    // receivedData is declared as a method instance elsewhere
+    [urlConnection release];
     [receivedData release];
     
     // inform the user
@@ -90,7 +90,7 @@
     
     if ([jsonobject isKindOfClass:[NSArray class]]) {
         // process it as an array
-        NSLog(@"JSON object is NSArray - it should not be an array here");
+        assert("JSON object should not be of type NSArray");
         
     } else if ([jsonobject isKindOfClass:[NSDictionary class]]) {
         // process it as a dictionary
@@ -127,7 +127,6 @@
     NSLog(@"JSON object is %@", jsonobject);
     
     [jsonparser release];
-    
     [receivedData release];
 }
 
@@ -161,9 +160,9 @@
     
     NSLog(@"About to start calling the URL");
     
-    NSURLConnection* theConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest delegate:self] autorelease];
+    urlConnection = [[[NSURLConnection alloc] initWithRequest:urlRequest delegate:self] autorelease];
     
-    if (theConnection) {
+    if (urlConnection) {
 
         receivedData = [[NSMutableData data] retain];
     }
