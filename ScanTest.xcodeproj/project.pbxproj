@@ -69,6 +69,8 @@
 		CC6970721451F870004CA33C /* SuperDealBar.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6970711451F870004CA33C /* SuperDealBar.png */; };
 		CC6970741451F95F004CA33C /* superdeal_content_box.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6970731451F95F004CA33C /* superdeal_content_box.png */; };
 		CC6970761451FA14004CA33C /* GimmeThisDeal_SuperDeal_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = CC6970751451FA14004CA33C /* GimmeThisDeal_SuperDeal_Button.png */; };
+		CCBD062F14D214C900621A9F /* InternetAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD062D14D214C900621A9F /* InternetAccessViewController.m */; };
+		CCBD063014D214C900621A9F /* InternetAccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCBD062E14D214C900621A9F /* InternetAccessViewController.xib */; };
 		CCD4BAA9148C61E5002681B5 /* DealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD4BAA8148C61E5002681B5 /* DealTableViewCell.m */; };
 		CCD4BAAB148C6259002681B5 /* DealTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD4BAAA148C6259002681B5 /* DealTableViewCell.xib */; };
 		CCDD819B1464FF080006CF3E /* AccountPrefsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDD81991464FF080006CF3E /* AccountPrefsViewController.m */; };
@@ -204,6 +206,9 @@
 		CC6970711451F870004CA33C /* SuperDealBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SuperDealBar.png; sourceTree = "<group>"; };
 		CC6970731451F95F004CA33C /* superdeal_content_box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = superdeal_content_box.png; sourceTree = "<group>"; };
 		CC6970751451FA14004CA33C /* GimmeThisDeal_SuperDeal_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GimmeThisDeal_SuperDeal_Button.png; sourceTree = "<group>"; };
+		CCBD062C14D214C900621A9F /* InternetAccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternetAccessViewController.h; sourceTree = "<group>"; };
+		CCBD062D14D214C900621A9F /* InternetAccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InternetAccessViewController.m; sourceTree = "<group>"; };
+		CCBD062E14D214C900621A9F /* InternetAccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InternetAccessViewController.xib; sourceTree = "<group>"; };
 		CCD4BAA7148C61E5002681B5 /* DealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealTableViewCell.h; sourceTree = "<group>"; };
 		CCD4BAA8148C61E5002681B5 /* DealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealTableViewCell.m; sourceTree = "<group>"; };
 		CCD4BAAA148C6259002681B5 /* DealTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealTableViewCell.xib; sourceTree = "<group>"; };
@@ -470,6 +475,9 @@
 				CC69705F14511F67004CA33C /* LoginViewController.h */,
 				CC69706014511F67004CA33C /* LoginViewController.m */,
 				CC69706114511F67004CA33C /* LoginViewController.xib */,
+				CCBD062C14D214C900621A9F /* InternetAccessViewController.h */,
+				CCBD062D14D214C900621A9F /* InternetAccessViewController.m */,
+				CCBD062E14D214C900621A9F /* InternetAccessViewController.xib */,
 			);
 			name = LoginAndSignup;
 			sourceTree = "<group>";
@@ -591,6 +599,7 @@
 				CCDD81BF14671E2E0006CF3E /* AccountPhoneViewController.xib in Resources */,
 				CCD4BAAB148C6259002681B5 /* DealTableViewCell.xib in Resources */,
 				CC46EEA3148F5FC1004D8CAC /* DailyDealDetailViewController.xib in Resources */,
+				CCBD063014D214C900621A9F /* InternetAccessViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +639,7 @@
 				CCDD81BE14671E2E0006CF3E /* AccountPhoneViewController.m in Sources */,
 				CCD4BAA9148C61E5002681B5 /* DealTableViewCell.m in Sources */,
 				CC46EEA2148F5FC1004D8CAC /* DailyDealDetailViewController.m in Sources */,
+				CCBD062F14D214C900621A9F /* InternetAccessViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
