@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface DailyDealViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSURLConnectionDelegate> {
+@interface DailyDealViewController : UIViewController <UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, NSURLConnectionDelegate> {
     
     IBOutlet UISearchBar* search;
     IBOutlet UITableView* resultsTable;
@@ -33,6 +33,22 @@
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar;
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar;
+
+- (void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar;
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar;
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar;
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText;
+
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope;
+
 
 
 @end

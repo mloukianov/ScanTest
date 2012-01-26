@@ -41,4 +41,6 @@
 
 - (IBAction)doSignupButton:(id)sender;
 
+- (void)dismissKeyboard;
+
 @end

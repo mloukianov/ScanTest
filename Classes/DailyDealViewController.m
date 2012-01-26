@@ -161,6 +161,40 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+#pragma mark Search bar delegate methods
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"searchBarCancelButtonClicked");
+}
+
+- (void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar {
+    NSLog(@"searchBarResultsListButtonClicked");
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    NSLog(@"searchBarTextDidEndEditing");
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    NSLog(@"searchBarTextDidBeginEditing");
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSLog(@"searchBar textDidChange: %@", searchText);
+}
+
+- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
+    NSLog(@"searchBar selectedScopeButtonIndexDidChange");
+}
+
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    [searchBar resignFirstResponder];
+    
+    NSLog(@"Search bar content: %@", searchBar.text);
+}
+
 #pragma mark Segmented control methods
 
 - (IBAction)segmentedControlIndexChanged {
@@ -244,6 +278,7 @@
     
     // load deals data fromm the web site
     NSMutableString* mutableUrlString = [NSMutableString stringWithString:@"http://173.246.103.0/mobile/app/deals/1"];
+    // NSMutableString* mutableUrlString = [NSMutableString stringWithString:@"http://127.0.0.1:9000/mobile/app/deals/1"];
     
     NSURL* url = [NSURL URLWithString:mutableUrlString];
     
@@ -274,7 +309,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    search.autocorrectionType = UITextAutocorrectionTypeNo;
+    search.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    search.showsCancelButton = NO;
+    
+    search.placeholder = @"Enter location or address";
     
     [[self view] setBackgroundColor:[UIColor greenColor]];
 }

@@ -136,6 +136,7 @@
     [theTextField resignFirstResponder];
     
     NSString* urlString = [NSString stringWithString:@"http://173.246.103.0/mobile/app/login"];
+    // NSString* urlString = [NSString stringWithString:@"http://127.0.0.1:9000/mobile/app/login"];
     
     NSMutableString* mutableContentString = [NSMutableString stringWithString:@"email="];
     [mutableContentString appendString:[emailField text]];
@@ -202,7 +203,19 @@
     [[signupLabel layer] setBorderColor:[[UIColor whiteColor] CGColor]];
     [[signupLabel layer] setBorderWidth:1.0f];
     
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)dismissKeyboard {
+    if (emailField.editing) {
+        [emailField resignFirstResponder];
+    } else if (passwordField.editing) {
+        [passwordField resignFirstResponder];
+    }
 }
 
 - (void)viewDidUnload

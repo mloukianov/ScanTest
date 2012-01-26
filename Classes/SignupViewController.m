@@ -129,6 +129,7 @@
     }
 
     NSString* urlString = [NSString stringWithString:@"http://173.246.103.0/mobile/app/signup"];
+    // NSString* urlString = [NSString stringWithString:@"http://127.0.0.1:9000/mobile/app/signup"];
     
     NSMutableString* mutableContentString = [NSMutableString stringWithString:@"email="];
     [mutableContentString appendString:email];
